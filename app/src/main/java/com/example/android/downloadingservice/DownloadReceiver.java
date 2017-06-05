@@ -20,6 +20,7 @@ public class DownloadReceiver extends ResultReceiver{
 
     @Override
     protected void onReceiveResult(int resultCode, Bundle resultData) {
-      mainActivity.OnImageDownload((Bitmap) resultData.getParcelable("file"));
+        super.onReceiveResult(resultCode, resultData);
+        mainActivity.OnImageDownload((Bitmap) resultData.getParcelable("file"));
     }
 }

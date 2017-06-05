@@ -43,9 +43,11 @@ public class DownloadService extends IntentService {
                 InputStream input = new java.net.URL(urlToDownload).openStream();
                 // Decode Bitmap
                 bitmap = BitmapFactory.decodeStream(input);
+                b.putParcelable("file",bitmap);
+                receiver.send(0, b);
+                input.close();
         } catch (Exception e) {
                 e.printStackTrace();
         }
-        b.putParcelable("file",bitmap);
     }
 }
